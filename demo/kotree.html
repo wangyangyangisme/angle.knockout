@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>kotree</title>
+
+    <link rel="stylesheet" href="/js/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/js/animate.css/animate.css">
+    <link rel="stylesheet" href="/css/app.css">
+
+    <link rel="stylesheet" href="/js/jstree/themes/default/style.min.css">
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/knockout.js"></script>
+
+    <script type="text/javascript" src="/js/jstree/jstree.min.js"></script>
+    <script type="text/javascript" src="/js/koext/kotree.js"></script>
+
+</head>
+
+<body>
+
+    <div class="content-wrapper">
+
+        <div class="card-body">
+            <button class="btn btn-success mb-2" data-bind="click: onRefresh">刷新Tree</button>
+            <button class="btn btn-success mb-2" data-bind="click: onGetSelected">获取选中项</button>
+        </div>
+
+        <div data-bind="koTree:data"></div>
+
+        <script type="text/javascript">
+            $(function () {
+                var ViewModel = function () {
+                    this.data = new ko.koTree.viewModel({
+                        'localData': [
+                            { "id": "ajson1", "parent": "#", "text": "Simple root node" },
+                            { "id": "ajson2", "parent": "#", "text": "Root node 2" },
+                            { "id": "ajson3", "parent": "ajson2", "text": "Child 1" },
+                            { "id": "ajson4", "parent": "ajson2", "text": "Child 2" },
+                        ],
+                        "multiple": true,
+                        "plugins": ["checkbox"]
+                    });
+                    this.onRefresh = function () {
+                        this.data.refresh();
+                    }
+                    this.onGetSelected=function(){
+                       console.log(this.data.getSelected());
+                    }
+                };
+                ko.applyBindings(ViewModel);
+            });
+
+        </script>
+</body>
+
+</html>
