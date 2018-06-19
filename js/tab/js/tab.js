@@ -176,8 +176,8 @@ function closeTab(obj) {
 	var lastTab = $("#tab-menu .menu_tab:last");
 	if (cTab.hasClass("active")) {
 		if (lastTab.is(cTab)) {
-			tab.findTabPanel(cTab.next().prop("id")).show().siblings().hide();
-			cTab.prev().addClass("active").siblings().removeClass("active");
+			tab.findTabPanel(cTab.prev().prop("id")).show();
+			cTab.prev().addClass("active");
 		} else {
 			tab.findTabPanel(cTab.next().prop("id")).show().siblings().hide();
 			cTab.next().addClass("active").siblings().removeClass("active");
