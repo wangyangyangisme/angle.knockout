@@ -33,8 +33,10 @@
                 datafields: _fields
             };
             //判断数据处理方式，一旦传入了url代表需要请求远程api，反之则使用本地数据展示
-            if (_options.url === ""&&_options.localdata.length!=0) {
+            if (_options.localdata.length!=0) {
                 _source.localdata = _options.localdata;
+            }else if(_options.url != ""){
+                _source.url=_options.url;
             }
             //数据适配器
             var _dataAdapter = new $.jqx.dataAdapter(_source);
