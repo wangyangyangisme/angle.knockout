@@ -9975,3 +9975,4 @@
     return moment_with_locales;
 
 }));
+moment.locale("zh-cn");

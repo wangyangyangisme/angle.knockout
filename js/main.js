@@ -1,10 +1,10 @@
 class Menu {
-    constructor(id, url, title, childNode, ico) {
+    constructor(id, url, title, childNode, icon) {
         this.id = id;
         this.url = url;
         this.title = title;
         this.childNode = childNode;
-        this.ico = ico;
+        this.icon = icon;
     }
 }
 class MenuHelper {
@@ -13,7 +13,7 @@ class MenuHelper {
         $.each(data, function (i, item) {
             html += `<li>
                         <a href="#menu`+ item.id + `" data-toggle="collapse">
-                            <em class="icon-speedometer"></em>
+                            <em class="`+item.icon+`"></em>
                             <span>`+ item.title + `</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -27,7 +27,7 @@ class MenuHelper {
     static _node1(data, pid) {
         let html = `<ul class="sidebar-nav sidebar-subnav collapse" id="menu` + pid + `">`;
         $.each(data, function (i, item) {
-            html += `<li>` + (item.childNode == null ?
+            html += `<li>` + ((item.childNode == null||item.childNode=="") ?
                 `<a href="` + item.url + `" title="` + item.title + `" data-tab>
                     <span>`+ item.title + `</span>
                 </a>`:
@@ -55,11 +55,11 @@ $(function () {
     let html = "";
     if (true) {
         let kogrid = new Menu(11, "demo/kogrid.html", "KO表格", null, null);
-        let kotree = new Menu(12, "demo/kotree.html", "KO表格", null, null);
-        let test = new Menu(13, "", "三级菜单演示", [new Menu(131, "", "Test", null, null)], null);
+        let kotree = new Menu(12, "demo/kotree.html", "KO树形", null, null);
+        let test = new Menu(13, "", "三级菜单演示", [new Menu(131, "http://www.ibuyeasy.com/", "爱购", null, null)], null);
         let demo = new Menu(1, "", "Demo", [kogrid, kotree, test], "icon-speedometer");
-        var m = JSON.parse(JSON.stringify(demo));
-        html += MenuHelper.node([m]);
+        var m1 = JSON.parse(JSON.stringify(demo));
+        html += MenuHelper.node([m1]);
     }
     $(".sidebar-nav").append(html);
 });

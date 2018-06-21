@@ -152,14 +152,13 @@
 									<!-- User picture-->
 									<div class="user-block-picture">
 										<div class="user-block-status">
-											<img class="img-thumbnail rounded-circle" src="img/user/02.jpg" alt="Avatar" width="60" height="60">
-											<div class="circle bg-success circle-lg"></div>
+											<img class="img-thumbnail rounded-circle" src="img/user/avatar01.png" alt="Avatar" width="60" height="60">
 										</div>
 									</div>
 									<!-- Name and Job-->
 									<div class="user-block-info">
-										<span class="user-block-name">Hello, Mike</span>
-										<span class="user-block-role">Designer</span>
+										<span class="user-block-name">麦子</span>
+										<span class="user-block-role">管理员</span>
 									</div>
 								</div>
 							</div>
@@ -167,69 +166,9 @@
 						<!-- END user info-->
 						<!-- Iterates over all sidebar items-->
 						<li class="nav-heading ">
-							<span data-localize="sidebar.heading.HEADER">Main Navigation</span>
+							<span>导航栏</span>
 						</li>
-						<li>
 
-							<a href="#demo" title="demo" data-toggle="collapse">
-								<em class="icon-speedometer"></em>
-								<span data-localize="sidebar.nav.DASHBOARD">demo</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							<ul class="sidebar-nav sidebar-subnav collapse" id="demo">
-								<li class="sidebar-subnav-header">Demo</li>
-								<li>
-									<a href="demo/kogrid.html" title="KO表格" data-tab>
-										<span>KO表格</span>
-									</a>
-								</li>
-								<li>
-									<a href="demo/kotree.html" title="KO树形" data-tab>
-										<span>KO树形</span>
-									</a>
-								</li>
-								<li>
-									<a href="demo/flowchart.html" title="流程设计" data-tab>
-										<span>流程设计</span>
-									</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="#extras" title="Extras" data-toggle="collapse" class="collapsed" aria-expanded="false">
-								<em class="icon-cup"></em>
-								<span data-localize="sidebar.nav.extra.EXTRA">Extras</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							<ul class="sidebar-nav sidebar-subnav collapse" id="extras">
-								<li class="sidebar-subnav-header">Extras</li>
-								<li>
-									<a href="#blog" title="Blog" data-toggle="collapse">
-										<em class="fa fa-angle-right"></em>
-										<span>Blog</span>
-									</a>
-									<ul class="sidebar-nav sidebar-subnav collapse" id="blog">
-										<li class="sidebar-subnav-header">Blog</li>
-										<li>
-											<a href="" title="List">
-												<span>List</span>
-											</a>
-										</li>
-
-									</ul>
-								</li>
-								<li>
-									<a href="" title="Bug tracker">
-										<span>Bug tracker</span>
-									</a>
-								</li>
-
-							</ul>
-						</li>
 					</ul>
 					<!-- END sidebar nav-->
 				</nav>
@@ -448,7 +387,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="tab-pane fade" id="app-chat" role="tabpanel">
+						<div class="tab-pane fade active show" id="app-chat" role="tabpanel">
 							<h3 class="text-center text-thin mt-4">Connections</h3>
 						</div>
 					</div>
@@ -477,20 +416,20 @@
 				<div class="btn-group roll-nav roll-right">
 					<button class="dropdown" data-toggle="dropdown">
 						页签操作
-						<i class="fa fa-caret-down" style="padding-left: 3px;"></i>
+						<i class="fa fa-caret-down"></i>
 					</button>
-					<ul class="dropdown-menu dropdown-menu-right" style="min-width: 128px;">
+					<ul class="dropdown-menu dropdown-menu-right animated zoomIn">
 						<li>
-							<a onclick="javascript:onRefreshTab();" style="cursor: pointer;">刷新当前</a>
+							<a onclick="javascript:onRefreshTab();">刷新当前</a>
 						</li>
 						<li>
-							<a onclick="javascript:onCloseTab();" style="cursor: pointer;">关闭当前</a>
+							<a onclick="javascript:onCloseTab();">关闭当前</a>
 						</li>
 						<li>
-							<a onclick="javascript:onCloseAllTab();" style="cursor: pointer;">全部关闭</a>
+							<a onclick="javascript:onCloseAllTab();">全部关闭</a>
 						</li>
 						<li>
-							<a onclick="javascript:onCloseOtherTab();" style="cursor: pointer;">除此之外全部关闭</a>
+							<a onclick="javascript:onCloseOtherTab();">除此之外全部关闭</a>
 						</li>
 					</ul>
 				</div>
@@ -511,7 +450,7 @@
 	</div>
 
 
-	<script src="js/jquery.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script src="js/js-storage/js.storage.js"></script>
 	<script src="js/screenfull/dist/screenfull.js"></script>
 	<script src="js/modernizr/modernizr.custom.js"></script>

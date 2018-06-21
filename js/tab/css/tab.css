@@ -107,7 +107,8 @@
 	.content-tabs .roll-right .dropdown-menu li{
 		font-size:12px;
         line-height:26px;
-	    margin-left:10px;
+		margin-left:10px;
+		cursor: pointer;
 	}
 }
 @media (max-width:768px) {

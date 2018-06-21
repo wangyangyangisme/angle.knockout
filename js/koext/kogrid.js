@@ -19,7 +19,8 @@
                 sortable: true,
                 pageable: true,
                 pagermode: 'simple',
-                data:{}
+                data:{},
+                isServerSort:true
             }, options || {});
             //处理source-->datafields字段
             var _fields = [];
@@ -34,9 +35,6 @@
             {
                 datatype: _options.datatype,
                 datafields: _fields,
-                sort: function () {
-                    self.grid.jqxGrid('updatebounddata', 'sort');
-                },
                 processdata: function (data) {
                     $.each(self.options.data,function(key,value){
                         data[key]=value;
@@ -48,6 +46,12 @@
                 _source.localdata = _options.localdata;
             } else if (_options.url != "") {
                 _source.url = _options.url;
+            }
+            //启用服务器排序
+            if(_options.isServerSort){
+                _source.sort= function () {
+                    self.grid.jqxGrid('updatebounddata', 'sort');
+                }
             }
             //数据适配器
             var _dataAdapter = new $.jqx.dataAdapter(_source);
