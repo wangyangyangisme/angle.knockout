@@ -86,7 +86,7 @@
                 localizationobj.sortdescendingstring = "升序排序";
                 localizationobj.sortremovestring = "删除排序";
                 localizationobj.emptydatastring = "没有数据显示";
-                //self.grid.jqxGrid('localizestrings', localizationobj);
+                self.grid.jqxGrid('localizestrings', localizationobj);
             }
             self.refresh = function () {
                 self.grid.jqxGrid('updatebounddata');
@@ -119,10 +119,10 @@
             /**
              * 当element绑定完成设置本地化数据
              */
+            value.grid = $(element).jqxGrid(value.options);
             $(element).on("bindingcomplete", function () {
                 value.localizestrings();
             });
-            value.grid = $(element).jqxGrid(value.options);
             $(window).resize(function () {
                 var w = $(".content-wrapper").width();
                 value.grid.jqxGrid({ width: w });
