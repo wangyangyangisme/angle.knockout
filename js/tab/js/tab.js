@@ -164,7 +164,7 @@ function closeTab(obj) {
 
 	var tabOuterWidth = tab.calSumWidth($(".content-tabs").children().not(".menuTabs"));
 	var visibleWidth = $(".content-tabs").outerWidth(true) - tabOuterWidth;
-	var pageSize = Math.abs(visibleWidth / 140);
+	var pageSize = Math.abs(visibleWidth / 134);
 	var pageData = $(".page-tabs-content>a").length - 1;
 	var pageCount = Math.ceil(pageData / pageSize);
 	var pageIndex = (pageCount - 1) * pageSize;
