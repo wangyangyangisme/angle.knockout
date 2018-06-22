@@ -19,8 +19,8 @@
                 sortable: true,
                 pageable: true,
                 pagermode: 'simple',
-                data:{},
-                isServerSort:true
+                data: {},
+                isServerSort: true
             }, options || {});
             //处理source-->datafields字段
             var _fields = [];
@@ -36,8 +36,8 @@
                 datatype: _options.datatype,
                 datafields: _fields,
                 processdata: function (data) {
-                    $.each(self.options.data,function(key,value){
-                        data[key]=value;
+                    $.each(self.options.data, function (key, value) {
+                        data[key] = value;
                     });
                 }
             };
@@ -48,8 +48,8 @@
                 _source.url = _options.url;
             }
             //启用服务器排序
-            if(_options.isServerSort){
-                _source.sort= function () {
+            if (_options.isServerSort) {
+                _source.sort = function () {
                     self.grid.jqxGrid('updatebounddata', 'sort');
                 }
             }
@@ -119,11 +119,14 @@
             /**
              * 当element绑定完成设置本地化数据
              */
+            value.grid = $(element).jqxGrid(value.options);
             $(element).on("bindingcomplete", function () {
                 value.localizestrings();
             });
-            value.grid = $(element).jqxGrid(value.options);
-
+            $(window).resize(function () {
+                var w = $(".content-wrapper").width();
+                value.grid.jqxGrid({ width: w });
+            });
         }
     };
 })(jQuery, ko);
