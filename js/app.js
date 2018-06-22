@@ -2036,74 +2036,84 @@
         $sidebar = $('.sidebar');
         mq = APP_MEDIAQUERY;
 
+        $sidebar.hover(function () {
+            if ($("body").hasClass('aside-collapsed')) {
+                $("body").removeClass('aside-collapsed').addClass('aside-collapsed-on-hover');
+            }
+        }, function () {
+            if ($('body').hasClass('aside-collapsed-on-hover')) {
+                $("body").addClass('aside-collapsed').removeClass('aside-collapsed-on-hover');
+            }
+        });
+
         // AUTOCOLLAPSE ITEMS
         // -----------------------------------
 
-        var sidebarCollapse = $sidebar.find('.collapse');
-        sidebarCollapse.on('show.bs.collapse', function(event) {
+        // var sidebarCollapse = $sidebar.find('.collapse');
+        // sidebarCollapse.on('show.bs.collapse', function(event) {
 
-            event.stopPropagation();
-            if ($(this).parents('.collapse').length === 0)
-                sidebarCollapse.filter('.show').collapse('hide');
+        //     event.stopPropagation();
+        //     if ($(this).parents('.collapse').length === 0)
+        //         sidebarCollapse.filter('.show').collapse('hide');
 
-        });
+        // });
 
         // SIDEBAR ACTIVE STATE
         // -----------------------------------
 
         // Find current active item
-        var currentItem = $('.sidebar .active').parents('li');
+        // var currentItem = $('.sidebar .active').parents('li');
 
         // hover mode don't try to expand active collapse
-        if (!useAsideHover())
-            currentItem
-            .addClass('active') // activate the parent
-            .children('.collapse') // find the collapse
-            .collapse('show'); // and show it
+        // if (!useAsideHover())
+        //     currentItem
+        //     .addClass('active') // activate the parent
+        //     .children('.collapse') // find the collapse
+        //     .collapse('show'); // and show it
 
         // remove this if you use only collapsible sidebar items
-        $sidebar.find('li > a + ul').on('show.bs.collapse', function(e) {
-            if (useAsideHover()) e.preventDefault();
-        });
+        // $sidebar.find('li > a + ul').on('show.bs.collapse', function(e) {
+        //     if (useAsideHover()) e.preventDefault();
+        // });
 
         // SIDEBAR COLLAPSED ITEM HANDLER
         // -----------------------------------
 
 
-        var eventName = isTouch() ? 'click' : 'mouseenter';
-        var subNav = $();
-        $sidebar.on(eventName, '.sidebar-nav > li', function() {
+        // var eventName = isTouch() ? 'click' : 'mouseenter';
+        // var subNav = $();
+        // $sidebar.on(eventName, '.sidebar-nav > li', function() {
 
-            if (isSidebarCollapsed() || useAsideHover()) {
+        //     if (isSidebarCollapsed() || useAsideHover()) {
 
-                subNav.trigger('mouseleave');
-                subNav = toggleMenuItem($(this));
+        //         subNav.trigger('mouseleave');
+        //         subNav = toggleMenuItem($(this));
 
-                // Used to detect click and touch events outside the sidebar
-                sidebarAddBackdrop();
-            }
+        //         // Used to detect click and touch events outside the sidebar
+        //         sidebarAddBackdrop();
+        //     }
 
-        });
+        // });
 
-        var sidebarAnyclickClose = $sidebar.data('sidebarAnyclickClose');
+        // var sidebarAnyclickClose = $sidebar.data('sidebarAnyclickClose');
 
         // Allows to close
-        if (typeof sidebarAnyclickClose !== 'undefined') {
+        // if (typeof sidebarAnyclickClose !== 'undefined') {
 
-            $('.wrapper').on('click.sidebar', function(e) {
-                // don't check if sidebar not visible
-                if (!$body.hasClass('aside-toggled')) return;
+        //     $('.wrapper').on('click.sidebar', function(e) {
+        //         // don't check if sidebar not visible
+        //         if (!$body.hasClass('aside-toggled')) return;
 
-                var $target = $(e.target);
-                if (!$target.parents('.aside-container').length && // if not child of sidebar
-                    !$target.is('#user-block-toggle') && // user block toggle anchor
-                    !$target.parent().is('#user-block-toggle') // user block toggle icon
-                ) {
-                    $body.removeClass('aside-toggled');
-                }
+        //         var $target = $(e.target);
+        //         if (!$target.parents('.aside-container').length && // if not child of sidebar
+        //             !$target.is('#user-block-toggle') && // user block toggle anchor
+        //             !$target.parent().is('#user-block-toggle') // user block toggle icon
+        //         ) {
+        //             $body.removeClass('aside-toggled');
+        //         }
 
-            });
-        }
+        //     });
+        // }
 
     });
 
