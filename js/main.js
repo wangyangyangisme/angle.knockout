@@ -51,7 +51,7 @@ class MenuHelper {
     }
 }
 
-$(function () {
+$(window).on('load.menu', function () {
     let html = "";
     if (true) {
         let kogrid = new Menu(11, "demo/kogrid.html", "KO表格", null, null);
