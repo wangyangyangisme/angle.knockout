@@ -54,11 +54,9 @@ class MenuHelper {
 $(window).on('load.menu', function () {
     let html = "";
     if (true) {
-        let kogrid = new Menu(11, "demo/jqxGrid.html", "KO表格", null, null);
-        let kotree = new Menu(12, "demo/jqxTree.html", "KO树形", null, null);
         let flowchart = new Menu(14, "demo/flowchart.html", "流程设计", null, null);
         let test = new Menu(13, "", "三级菜单演示", [new Menu(131, "http://www.ibuyeasy.com/", "爱购", null, null)], null);
-        let demo = new Menu(1, "", "Demo", [kogrid, kotree,flowchart, test], "icon-speedometer");
+        let demo = new Menu(1, "", "Demo", [flowchart, test], "icon-speedometer");
         var m1 = JSON.parse(JSON.stringify(demo));
         html += MenuHelper.node([m1]);
     }
