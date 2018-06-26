@@ -116,3 +116,17 @@
 		display: none
 	}
 }
+
+.sidebar-nav li>a>.pull-right-container {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin-top: -7px;
+}
+
+.sidebar-nav li>a>.pull-right-container>.fa-angle-left {
+	width: auto;
+	height: auto;
+	padding: 0;
+	margin-right: 10px;
+}
