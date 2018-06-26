@@ -1,4 +1,4 @@
-class Menu {
+﻿class Menu {
     constructor(id, url, title, childNode, icon) {
         this.id = id;
         this.url = url;
@@ -312,7 +312,6 @@ function closeTab(obj) {
 			$(this).addClass("active").siblings().removeClass("active");
 			tab.findTabPanel($(this).prop("id")).show().siblings().hide();
 		});
-		tab.handleIframeContent();
 	});
 	/**
 	 * 窗体大小改变iframe大小
