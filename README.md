@@ -8,8 +8,6 @@
 
 
 ## demo 
-* kotree.html 使用jstree，结合ko进行了优化，减少了core参数的传递
-* kogrid.html 使用jqwidgets，结合ko，亲 要支持正版、正版、正版，我这个属于学习交流
 * flowchart.html 这个就是利用gojs实现的流程设计
 
 暂时没其他要交代的了，还有我是后端程序猿（C#），伪前端（js）开发人员
