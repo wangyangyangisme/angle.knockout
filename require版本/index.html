@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>mymaiziERP</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="bookmark" href="favicon.ico" />
+	<link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="css/simple-line-icons/css/simple-line-icons.css">
+	<link rel="stylesheet" href="css/animate/animate.css">
+	<link rel="stylesheet" href="js/tab/css/tab.css">
+	<link rel="stylesheet" href="css/app.css">
+</head>
+
+<body oncontextmenu="return false">
+	<div class="wrapper">
+		<!-- top navbar-->
+		<header class="topnavbar-wrapper">
+			<!-- START Top Navbar-->
+			<nav class="navbar topnavbar">
+				<!-- START navbar header-->
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#/">
+						<div class="brand-logo">
+							<img class="img-fluid" src="img/logo.png" alt="App Logo">
+						</div>
+						<div class="brand-logo-collapsed">
+							<img class="img-fluid" src="img/logo-single.png" alt="App Logo">
+						</div>
+					</a>
+				</div>
+				<!-- END navbar header-->
+				<!-- START Left navbar-->
+				<ul class="navbar-nav mr-auto flex-row">
+					<li class="nav-item">
+						<!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+						<a class="nav-link d-none d-md-block d-lg-block d-xl-block" href="#" data-trigger-resize="" data-toggle-state="aside-collapsed">
+							<em class="fa fa-navicon"></em>
+						</a>
+						<!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+						<a class="nav-link sidebar-toggle d-md-none" href="#" data-toggle-state="aside-toggled" data-no-persist="true">
+							<em class="fa fa-navicon"></em>
+						</a>
+					</li>
+					<!-- START User avatar toggle-->
+					<li class="nav-item d-none d-md-block">
+						<!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+						<a class="nav-link" id="user-block-toggle" href="#user-block" data-toggle="collapse">
+							<em class="icon-user"></em>
+						</a>
+					</li>
+					<!-- END User avatar toggle-->
+					<!-- START lock screen-->
+					<li class="nav-item d-none d-md-block">
+						<a class="nav-link" href="javascript:;" title="Lock screen">
+							<em class="icon-lock"></em>
+						</a>
+					</li>
+					<!-- END lock screen-->
+				</ul>
+				<!-- END Left navbar-->
+				<!-- START Right Navbar-->
+				<ul class="navbar-nav flex-row">
+					<!-- Search icon-->
+					<li class="nav-item">
+						<a class="nav-link" href="#" data-search-open="">
+							<em class="icon-magnifier"></em>
+						</a>
+					</li>
+					<!-- Fullscreen (only desktops)-->
+					<li class="nav-item d-none d-md-block">
+						<a class="nav-link" href="#" data-toggle-fullscreen="">
+							<em class="fa fa-expand"></em>
+						</a>
+					</li>
+					<!-- START Alert menu-->
+					<li class="nav-item dropdown dropdown-list">
+						<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-toggle="dropdown">
+							<em class="icon-bell"></em>
+							<span class="badge badge-danger"></span>
+						</a>
+						<!-- START Dropdown menu-->
+						<div class="dropdown-menu dropdown-menu-right animated flipInX">
+							<div class="dropdown-item">
+								<!-- START list group-->
+								<div class="list-group">
+
+									<!-- last list item-->
+									<div class="list-group-item list-group-item-action">
+										<span class="d-flex align-items-center">
+											<span class="text-sm">More notifications</span>
+											<span class="badge badge-danger ml-auto">0</span>
+										</span>
+									</div>
+								</div>
+								<!-- END list group-->
+							</div>
+						</div>
+						<!-- END Dropdown menu-->
+					</li>
+					<!-- END Alert menu-->
+				</ul>
+				<!-- END Right Navbar-->
+				<!-- START Search form-->
+				<form class="navbar-form" role="search" action="search.html">
+					<div class="form-group">
+						<input class="form-control" type="text" placeholder="搜索 ...">
+						<div class="fa fa-times navbar-form-close" data-search-dismiss=""></div>
+					</div>
+					<button class="d-none" type="submit">Submit</button>
+				</form>
+				<!-- END Search form-->
+			</nav>
+			<!-- END Top Navbar-->
+		</header>
+		<!-- sidebar-->
+		<aside class="aside-container">
+			<!-- START Sidebar (left)-->
+			<div class="aside-inner">
+				<nav class="sidebar">
+					<!-- START sidebar nav-->
+					<ul class="sidebar-nav">
+						<!-- START user info-->
+						<li class="has-user-block">
+							<div class="collapse" id="user-block">
+								<div class="item user-block">
+									<!-- User picture-->
+									<div class="user-block-picture">
+										<div class="user-block-status">
+											<img class="img-thumbnail rounded-circle" src="img/user/avatar01.png" alt="Avatar" width="60" height="60">
+										</div>
+									</div>
+									<!-- Name and Job-->
+									<div class="user-block-info">
+										<span class="user-block-name">麦子</span>
+										<span class="user-block-role">管理员</span>
+									</div>
+								</div>
+							</div>
+						</li>
+						<!-- END user info-->
+						<!-- Iterates over all sidebar items-->
+						<li class="nav-heading ">
+							<span>导航栏</span>
+						</li>
+
+					</ul>
+					<!-- END sidebar nav-->
+				</nav>
+			</div>
+			<!-- END Sidebar (left)-->
+		</aside>
+		<!-- Main section-->
+		<section class="section-container">
+			<!-- Page content-->
+			<div class="content-tabs">
+				<button class="roll-nav roll-left" onclick="javascript:toTabLeft();">
+					<i class="fa fa-backward"></i>
+				</button>
+				<nav class="page-tabs menuTabs" id="tab-menu">
+					<div class="page-tabs-content" style="margin-left: 0px;">
+
+						<a href="javascript:void(0);" class="menu_tab active" id="tab0">
+							<span style="width: 100px;display: block;text-align: center">欢迎页</span>
+						</a>
+					</div>
+				</nav>
+				<button class="roll-nav roll-right tabRight" onclick="javascript:toTabRight();">
+					<i class="fa fa-forward" style="margin-left: 3px;"></i>
+				</button>
+				<div class="btn-group roll-nav roll-right">
+					<button class="dropdown" data-toggle="dropdown">
+						页签操作
+						<i class="fa fa-caret-down"></i>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right animated zoomIn">
+						<li>
+							<a onclick="javascript:onRefreshTab();">刷新当前</a>
+						</li>
+						<li>
+							<a onclick="javascript:onCloseTab();">关闭当前</a>
+						</li>
+						<li>
+							<a onclick="javascript:onCloseAllTab();">全部关闭</a>
+						</li>
+						<li>
+							<a onclick="javascript:onCloseOtherTab();">除此之外全部关闭</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="content-iframe" style="background-color: #ffffff; ">
+				<div id="tab-content">
+					<div id="tab0" class="tab-pane">
+						<div class="content-wrapper">
+							<!-- START cards box-->
+							<div class="row">
+								<div class="col-xl-3 col-md-6">
+									<!-- START card-->
+									<div class="card flex-row align-items-center align-items-stretch border-0">
+										<div class="col-4 d-flex align-items-center bg-primary-dark justify-content-center rounded-left">
+											<em class="icon-home fa-3x"></em>
+										</div>
+										<div class="col-8 py-3 bg-primary rounded-right">
+											<div class="h2 mt-0">0
+												<small>套</small>
+											</div>
+											<div class="text-uppercase">本月收集房源</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-3 col-md-6">
+									<!-- START card-->
+									<div class="card flex-row align-items-center align-items-stretch border-0">
+										<div class="col-4 d-flex align-items-center bg-info-dark justify-content-center rounded-left">
+											<em class="icon-people fa-3x"></em>
+										</div>
+										<div class="col-8 py-3 bg-info rounded-right">
+											<div class="h2 mt-0">0
+												<small>人</small>
+											</div>
+											<div class="text-uppercase">本月收集客源</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-3 col-lg-6 col-md-12">
+									<!-- START card-->
+									<div class="card flex-row align-items-center align-items-stretch border-0">
+										<div class="col-4 d-flex align-items-center bg-success-dark justify-content-center rounded-left">
+											<em class="icon-diamond fa-3x"></em>
+										</div>
+										<div class="col-8 py-3 bg-success rounded-right">
+											<div class="h2 mt-0">0
+												<small>元</small>
+											</div>
+											<div class="text-uppercase">本月成交额</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-3 col-lg-6 col-md-12">
+									<!-- START date widget-->
+									<div class="card flex-row align-items-center align-items-stretch border-0">
+										<div class="col-4 d-flex align-items-center bg-green justify-content-center rounded-left">
+											<div class="text-center">
+												<div class="text-sm" data-now="" data-format="MMMM"></div>
+												<br>
+												<div class="h2 mt-0" data-now="" data-format="D"></div>
+											</div>
+										</div>
+										<div class="col-8 py-3 rounded-right">
+											<div class="text-uppercase" data-now="" data-format="dddd"></div>
+											<br>
+											<div class="h2 mt-0" data-now="" data-format="h:mm"></div>
+											<div class="text-muted text-sm" data-now="" data-format="a"></div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xl-9">
+									<div class="row">
+										<div class="col-xl-4">
+											<div class="card card-default">
+												<div class="card-header">
+													<div class="px-2 float-right">
+														<a class="text-sm" href="#">更多</a>
+													</div>
+													<div class="card-title">这里放啥子</div>
+												</div>
+												<div class="card-body">
+
+												</div>
+											</div>
+										</div>
+										<div class="col-xl-8">
+											<div class="card card-default">
+												<div class="card-header">
+													<div class="px-2 float-right">
+														<a class="text-sm" href="#">更多</a>
+													</div>
+													<div class="card-title">待办任务</div>
+												</div>
+												<div class="list-group">
+
+												</div>
+											</div>
+
+											<div class="card card-default">
+												<div class="card-header">
+													<div class="px-2 float-right">
+														<a class="text-sm" href="#">更多</a>
+													</div>
+													<div class="card-title">待办事项</div>
+												</div>
+												<div class="list-group">
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<aside class="col-xl-3">
+									<div class="card card-default">
+										<div class="card-header">
+											<div class="px-2 float-right">
+												<a class="text-sm" href="#">更多</a>
+											</div>
+											<div class="card-title">捷报</div>
+										</div>
+										<div class="list-group">
+										</div>
+									</div>
+									<div class="card card-default">
+										<div class="card-header">
+											<div class="px-2 float-right">
+												<a class="text-sm" href="#">更多</a>
+											</div>
+											<div class="card-title">我的收藏</div>
+										</div>
+										<div class="list-group">
+										</div>
+									</div>
+								</aside>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Page footer-->
+		<footer class="footer-container">
+			<span>&copy; 2018 - mymaizi</span>
+		</footer>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/js-storage/js.storage.js"></script>
+	<script src="js/screenfull/screenfull.js"></script>
+	<script src="js/modernizr/modernizr.custom.js"></script>
+	<script src="js/popper/popper.min.js"></script>
+	<script src="js/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/moment/moment-with-locales.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/tab/js/tab.js"></script>
+
+</body>
+
+</html>

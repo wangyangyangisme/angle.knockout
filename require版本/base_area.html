@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>mymaiziERP-行政区域</title>
+    <link rel="stylesheet" href="/js/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/css/animate/animate.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/js/jqwidgets/css/jqx.base.css">
+    <link rel="stylesheet" href="/js/daterangepicker/css/daterangepicker.css">
+</head>
+
+<body>
+
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-8">
+                <div class="form-inline">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">区域名称</div>
+                        </div>
+                        <input class="form-control" type="text" placeholder="请输入区域名称" data-bind="value: mySearchModel.AreaName">
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="float-right">
+                    <button class="btn btn-primary mb-2" type="button" data-bind="click:mySearch,visible:myAuthorBtns.isSearch">查询</button>
+                    <button class="btn btn-success mb-2" type="button" data-bind="click:myAdd,visible:myAuthorBtns.isAdd">新增</button>
+                    <button class="btn btn-info mb-2" type="button" data-bind="click:myEdit,visible:myAuthorBtns.isEdit">修改</button>
+                    <button class="btn btn-danger mb-2" type="button" data-bind="click:myRemove,visible:myAuthorBtns.isRemove">删除</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="myGrid">
+                </div>
+                <div id='Menu'>
+                    <ul>
+                        <li>编辑</li>
+                        <li>添加子区域</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- #region 新增-->
+    <div id="myModel1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" data-bind="text: title"></h5>-区域
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" data-parsley-validate novalidate>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-form-label">上级区域</label>
+                            <div class="col-xl-9">
+                                <label class="col-form-label" data-bind="text: entity.ParentName"></label>
+                                <input type="hidden" data-bind="value: entity.ParentId">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-form-label">区域名称</label>
+                            <div class="col-xl-9">
+                                <input class="form-control" type="text" placeholder="请输入区域名称" required data-bind="value: entity.AreaName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-form-label">区域编码</label>
+                            <div class="col-xl-9">
+                                <input class="form-control" type="text" placeholder="请输入区域编码" required data-bind="value: entity.AreaCode">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-form-label">快速查询</label>
+                            <div class="col-xl-9">
+                                <input class="form-control" type="text" placeholder="请输入快速查询" required data-bind="value: entity.QuickQuery">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-form-label">简拼</label>
+                            <div class="col-xl-9">
+                                <input class="form-control" type="number" placeholder="请选择简拼" required maxlength="4" data-parsley-maxlength="4" data-bind="value: entity.SimpleSpelling">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-form-label">层次</label>
+                            <div class="col-xl-9">
+                                <input class="form-control" type="number" placeholder="请选择层次" required maxlength="4" data-parsley-maxlength="4" data-bind="value: entity.Layer">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-form-label">排序码</label>
+                            <div class="col-xl-9">
+                                <input class="form-control" type="text" placeholder="请输入排序码" required data-bind="value: entity.SortCode">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-form-label">备注</label>
+                            <div class="col-xl-9">
+                                <textarea class="form-control" placeholder="请输入备注" required data-bind="value: entity.Description"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-inverse" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-bind="click: mySave">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion -->
+    <script data-main="js/app/base_area" src="js/require.js"></script>
+</body>
+
+</html>

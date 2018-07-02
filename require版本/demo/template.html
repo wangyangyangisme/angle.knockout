@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>mymaiziERP-youName</title>
+    <link rel="stylesheet" href="/js/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/css/animate/animate.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/js/jqwidgets/css/jqx.base.css">
+    <link rel="stylesheet" href="/js/daterangepicker/css/daterangepicker.css">
+</head>
+
+<body>
+
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-8">
+                <div class="form-inline">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">搜索条件</div>
+                        </div>
+                        <input class="form-control" type="text" placeholder="请输入搜索条件" data-bind="value: mySearchModel.YouWhere">
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="float-right">
+                    <button class="btn btn-primary mb-2" type="button" data-bind="click:mySearch,visible:myAuthorBtns.isSearch">查询</button>
+                    <button class="btn btn-success mb-2" type="button" data-bind="click:myAdd,visible:myAuthorBtns.isAdd">新增</button>
+                    <button class="btn btn-info mb-2" type="button" data-bind="click:myEdit,visible:myAuthorBtns.isEdit">修改</button>
+                    <button class="btn btn-danger mb-2" type="button" data-bind="click:myRemove,visible:myAuthorBtns.isRemove">删除</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="myGrid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script data-main="js/app/youJs" src="js/require.js"></script>
+</body>
+
+</html>
