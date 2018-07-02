@@ -15,6 +15,7 @@
     if (typeof $ === 'undefined') {
         throw new Error('This application\'s JavaScript requires jQuery');
     }
+
     $.localStorage = Storages.localStorage;
 
     $(function() {
@@ -1977,6 +1978,7 @@
 (function(window, document, $, undefined) {
 
     $(function() {
+
         $('[data-now]').each(function() {
             var element = $(this),
                 format = element.data('format');
@@ -2034,7 +2036,6 @@
         $sidebar = $('.sidebar');
         mq = APP_MEDIAQUERY;
 
-
         ;;;//menu hover 扩展
         $sidebar.hover(function () {
             if ($("body").hasClass('aside-collapsed')) {
@@ -2046,20 +2047,17 @@
             }
         });
 
+        // AUTOCOLLAPSE ITEMS
+        // -----------------------------------
 
+        var sidebarCollapse = $sidebar.find('.collapse');
+        sidebarCollapse.on('show.bs.collapse', function(event) {
 
+            event.stopPropagation();
+            if ($(this).parents('.collapse').length === 0)
+                sidebarCollapse.filter('.show').collapse('hide');
 
-        // // AUTOCOLLAPSE ITEMS
-        // // -----------------------------------
-
-        // var sidebarCollapse = $sidebar.find('.collapse');
-        // sidebarCollapse.on('show.bs.collapse', function(event) {
-
-        //     event.stopPropagation();
-        //     if ($(this).parents('.collapse').length === 0)
-        //         sidebarCollapse.filter('.show').collapse('hide');
-
-        // });
+        });
 
         // // SIDEBAR ACTIVE STATE
         // // -----------------------------------
@@ -2082,9 +2080,9 @@
         // // SIDEBAR COLLAPSED ITEM HANDLER
         // // -----------------------------------
 
+
         // var eventName = isTouch() ? 'click' : 'mouseenter';
         // var subNav = $();
-      
         // $sidebar.on(eventName, '.sidebar-nav > li', function() {
 
         //     if (isSidebarCollapsed() || useAsideHover()) {
@@ -2097,7 +2095,6 @@
         //     }
 
         // });
-       
 
         // var sidebarAnyclickClose = $sidebar.data('sidebarAnyclickClose');
 
